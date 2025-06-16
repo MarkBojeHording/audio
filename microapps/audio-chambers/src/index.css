@@ -40,4 +40,16 @@
   .text-area-container {
     @apply relative bg-white rounded-xl shadow-lg border-2 border-gray-200 focus-within:border-manuscript-gold transition-colors duration-200;
   }
+
+  .slider {
+    @apply appearance-none bg-gray-200 rounded-lg h-2 outline-none;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 bg-manuscript-gold rounded-full cursor-pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    @apply w-4 h-4 bg-manuscript-gold rounded-full cursor-pointer border-none;
+  }
 }
