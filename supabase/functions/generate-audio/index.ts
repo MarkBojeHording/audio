@@ -1,5 +1,3 @@
-import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
-
 // CORS headers configuration
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -12,7 +10,7 @@ interface GenerateAudioRequest {
   voice_id: string;
 }
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response('ok', { 
@@ -71,11 +69,11 @@ serve(async (req) => {
       )
     }
 
-    // Get Eleven Labs API key from environment
-    const elevenLabsApiKey = Deno.env.get('ELEVEN_LABS_API_KEY')
+    // Get Eleven Labs API key from environment - try both possible names
+    const elevenLabsApiKey = Deno.env.get('ELEVENLABS_API_KEY') || Deno.env.get('ELEVEN_LABS_API_KEY')
     
     if (!elevenLabsApiKey) {
-      console.error('ELEVEN_LABS_API_KEY not found in environment variables')
+      console.error('ELEVENLABS_API_KEY not found in environment variables')
       return new Response(
         JSON.stringify({ 
           error: 'Server configuration error. Please contact administrator.' 
@@ -90,9 +88,23 @@ serve(async (req) => {
       )
     }
 
+    // Default voice ID mapping
+    const voiceIdMap: { [key: string]: string } = {
+      'adam': '21m00Tzpb8JJc4PZgOLQ',
+      'antoni': 'ErXwobaYiN019PkySvjV',
+      'bella': 'EXAVITQu4vr4xnSDxMaL',
+      'elli': 'MF3mGyEYCl7XYWbV9V6O',
+      'josh': 'TxGEqnHWrfWFTfGW9XjX',
+      'rachel': '21m00Tzpb8JJc4PZgOLQ',
+      'sam': 'yoZ06aMxZJJ28mfd3POQ'
+    }
+
+    // Use mapped voice ID or the provided one if it's already a valid ID
+    const actualVoiceId = voiceIdMap[voice_id] || voice_id
+
     // Call Eleven Labs API
     const elevenLabsResponse = await fetch(
-      `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}`,
+      `https://api.elevenlabs.io/v1/text-to-speech/${actualVoiceId}`,
       {
         method: 'POST',
         headers: {
@@ -104,8 +116,8 @@ serve(async (req) => {
           text: text,
           model_id: 'eleven_monolingual_v1',
           voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.5,
+            stability: 0.75,
+            similarity_boost: 0.75,
           },
         }),
       }
