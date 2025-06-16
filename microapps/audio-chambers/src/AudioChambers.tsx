@@ -31,7 +31,7 @@ const VOICES: Voice[] = [
   { id: 'E6fG9hI2jK5l8mN1oP3q', name: 'Charlotte', description: 'Sensual and raspy, she\'s ready to voice your...' },
   { id: 'A3cE6gI9kJ2lN5oP8qR1', name: 'Alice', description: 'Clear and engaging, friendly woman with a Britis...' },
   { id: 'M4oC7uV0iN3b6e8a1d5f', name: 'Matilda', description: 'A professional woman with a pleasing alto pitch...' },
-  { id: 'EXAVITQu4vr4xnSDxMaL', name: 'Bella', description: 'Warm, engaging female voice (Fallback from previous tests)' },
+ { id: 'EXAVITQu4vr4xnSDxMaL', name: 'Bella', description: 'Warm, engaging female voice' },
 ];
 
 const AudioChambers: React.FC = () => {
