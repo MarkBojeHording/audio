@@ -19,13 +19,13 @@ interface Voice {
 }
 
 const VOICES: Voice[] = [
-  { id: 'adam', name: 'Adam', description: 'Deep, resonant male voice' },
-  { id: 'antoni', name: 'Antoni', description: 'Well-rounded male voice' },
-  { id: 'bella', name: 'Bella', description: 'Warm, engaging female voice' },
-  { id: 'elli', name: 'Elli', description: 'Youthful, energetic female voice' },
-  { id: 'josh', name: 'Josh', description: 'Clear, professional male voice' },
-  { id: 'rachel', name: 'Rachel', description: 'Calm, soothing female voice' },
-  { id: 'sam', name: 'Sam', description: 'Friendly, conversational male voice' }
+  { id: 'EXAVITQu4vr4xnSDxMaL', name: 'Bella', description: 'Warm, engaging female voice' }, 
+  { id: '21m00Tzpb8JJc4PZgOLQ', name: 'Adam', description: 'Deep, resonant male voice' },
+  { id: 'AZzNKC7fD5iC5L4S7iCg', name: 'Antoni', description: 'Well-rounded male voice' },
+  { id: 'pFZv13yG1gH8G76M54gE', name: 'Elli', description: 'Youthful, energetic female voice' },
+  { id: 'TxGEqnHWrfWFTCxW0aRb', name: 'Josh', description: 'Clear, professional male voice' },
+  { id: 'VR6WFUSzE2oVLwHrxWcW', name: 'Rachel', description: 'Calm, soothing female voice' },
+  { id: 'ZQeCzl5NtEvK8I84V5H9', name: 'Sam', description: 'Friendly, conversational male voice' }
 ];
 
 const AudioChambers: React.FC = () => {
