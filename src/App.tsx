@@ -8,21 +8,21 @@ const AudioChambers = lazy(() =>
   }))
 );
 
-// Loading component
+// Loading component with proper styling
 const LoadingSpinner = () => (
-  <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center">
+  <div className="min-h-screen bg-gradient-to-br from-oxford-navy via-blue-900 to-oxford-navy flex items-center justify-center">
     <div className="text-center">
       <div className="flex items-center justify-center gap-3 mb-4">
-        <Headphones className="w-8 h-8 text-yellow-400 animate-pulse" />
-        <Loader2 className="w-6 h-6 text-yellow-400 animate-spin" />
+        <Headphones className="w-8 h-8 text-manuscript-gold animate-pulse" />
+        <Loader2 className="w-6 h-6 text-manuscript-gold animate-spin" />
       </div>
-      <h2 className="text-2xl font-semibold text-white mb-2">Loading Audio Chambers</h2>
-      <p className="text-blue-200">Preparing your audiobook studio...</p>
+      <h2 className="text-2xl font-playfair font-semibold text-white mb-2">Loading Audio Chambers</h2>
+      <p className="text-blue-200 font-inter">Preparing your audiobook studio...</p>
     </div>
   </div>
 );
 
-// Error boundary component
+// Error boundary component with proper styling
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean; error?: Error }
@@ -48,13 +48,13 @@ class ErrorBoundary extends React.Component<
             <div className="flex items-center justify-center gap-3 mb-4">
               <Headphones className="w-8 h-8 text-red-400" />
             </div>
-            <h2 className="text-2xl font-semibold text-white mb-4">Unable to Load Audio Chambers</h2>
-            <p className="text-red-200 mb-6">
+            <h2 className="text-2xl font-playfair font-semibold text-white mb-4">Unable to Load Audio Chambers</h2>
+            <p className="text-red-200 font-inter mb-6">
               There was an error loading the Audio Chambers application. Please check your setup and try again.
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors duration-200"
+              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-inter font-medium transition-colors duration-200"
             >
               Reload Application
             </button>

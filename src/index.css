@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .prose, .font-lora {
+    font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  .font-playfair {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  }
+}
+
+@layer components {
+  .audio-button {
+    @apply px-6 py-3 rounded-lg font-inter font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+  
+  .audio-button-primary {
+    @apply audio-button bg-manuscript-gold text-oxford-navy hover:bg-yellow-400;
+  }
+  
+  .audio-button-secondary {
+    @apply audio-button bg-oxford-navy text-white hover:bg-blue-900;
+  }
+  
+  .audio-button-danger {
+    @apply audio-button bg-burgundy-leather text-white hover:bg-red-900;
+  }
+  
+  .control-panel {
+    @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200;
+  }
+  
+  .text-area-container {
+    @apply relative bg-white rounded-xl shadow-lg border-2 border-gray-200 focus-within:border-manuscript-gold transition-colors duration-200;
+  }
+
+  .slider {
+    @apply appearance-none bg-gray-200 rounded-lg h-2 outline-none;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 bg-manuscript-gold rounded-full cursor-pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    @apply w-4 h-4 bg-manuscript-gold rounded-full cursor-pointer border-none;
+  }
+}
